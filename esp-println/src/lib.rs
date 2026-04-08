@@ -5,7 +5,7 @@
 #![allow(rustdoc::bare_urls)]
 #![no_std]
 
-#[cfg(feature = "defmt-espflash")]
+#[cfg(feature = "defmt")]
 pub mod defmt;
 #[cfg(feature = "log-04")]
 pub mod logger;
@@ -28,10 +28,10 @@ macro_rules! log_format {
     };
 }
 
-#[cfg(feature = "defmt-espflash")]
+#[cfg(feature = "defmt")]
 log_format!("defmt-espflash");
 
-#[cfg(not(feature = "defmt-espflash"))]
+#[cfg(not(feature = "defmt"))]
 log_format!("serial");
 
 /// Prints to the selected output, with a newline.

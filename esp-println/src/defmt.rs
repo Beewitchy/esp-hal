@@ -15,7 +15,7 @@ static mut TAKEN: bool = false;
 static mut CS_RESTORE: RestoreState = RestoreState::invalid();
 static mut ENCODER: defmt::Encoder = defmt::Encoder::new();
 
-#[defmt::global_logger]
+#[cfg_attr(feature = "defmt-espflash", defmt::global_logger)]
 pub struct Logger;
 unsafe impl defmt::Logger for Logger {
     fn acquire() {
